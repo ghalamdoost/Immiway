@@ -1,0 +1,66 @@
+<div class="formContainer">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="row g-3">
+      <div class="col-md-6">
+          <label for="firstname" class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="firstName" />
+      </div>
+      <div class="col-md-6">
+          <label for="lastname" class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName" />
+      </div>
+      <div class="col-md-6">
+          <label for="age" class="form-label">Age</label>
+          <input type="number" class="form-control" formControlName="age" />
+      </div>
+      <div class="col-md-6">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="number" class="form-control" formControlName="phone" />
+          
+      </div>
+      <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" [pattern]="emailPattern"/>
+          <div class="col-md-12 red-alert" *ngIf="email.errors?.pattern">
+            Please Enter a Valid Email Address
+          </div> 
+      </div>
+      <div class="col-md-6">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password" [pattern]="passwordPattern" />
+          <div class="col-md-12 red-alert" *ngIf="password.errors?.pattern">
+            Password must Contain Minimum 6 Characters
+           
+       </div> 
+      </div>
+      
+      
+      <div class="col-md-6">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" formControlName="address" placeholder="Main St" />
+      </div>
+      <div class="col-md-2">
+          <label for="address" class="form-label">Unit</label>
+          <input type="text" class="form-control" formControlName="unit" placeholder="1234" />
+      </div>
+      <div class="col-md-4">
+          <label for="postalcodeOrZippCode" class="form-label">Zip</label>
+          <input type="text" class="form-control" formControlName="postalcodeOrZippCode" />
+      </div>
+      <div class="col-md-6">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" class="form-control" formControlName="country" />
+      </div>
+      <div class="col-md-3">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" formControlName="city" />
+      </div>
+      <div class="col-md-3">
+          <label for="provinceOrState" class="form-label">State</label>
+          <input type="text" class="form-control" formControlName="provinceOrState" />
+      </div>
+
+      <div class="col-12">
+          <button type="submit" [disabled]="!registerForm.valid" class="btn btn-block btn-primary">Register</button>
+      </div>
+  </form>
+</div>

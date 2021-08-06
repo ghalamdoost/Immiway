@@ -1,0 +1,43 @@
+<div class="example-button-row">    
+  <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-icon-button class="add" (click)="goToAdd()"><mat-icon>add</mat-icon></button>      
+      </div>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <nav class="navbar">
+    <input class="form-control" type="text" name="title" [(ngModel)]="title" (ngModelChange)="Search()" placeholder="Search Title">
+  </nav>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Parent Menu</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let content of list; index as i">
+        <th scope="row">{{ i + 1 }}</th>        
+        <td>
+          {{content.primaryTitle}} 
+        </td>
+        <td>
+            {{content.priority}}
+        </td>
+        <td>{{content.parentTitle}}</td>
+        <td>
+          <a mat-icon-button class="subNav" (click)="load(content._id,content.parentId)" ><mat-icon>info</mat-icon></a>
+          <a mat-icon-button class="edit" (click)="goToEditMode(content)"><mat-icon>change_circle</mat-icon></a>
+        <button mat-icon-button class="delete" (click)="delete(content._id)"><mat-icon>remove_circle</mat-icon></button>   
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a class="btn btn-block btn-secondary" (click)=load(orgId)  *ngIf="parentId">Back</a>

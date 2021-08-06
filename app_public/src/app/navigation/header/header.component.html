@@ -1,0 +1,82 @@
+<mat-toolbar class="sticky">
+    <div fxHide.gt-sm>
+        <a mat-icon-button (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </a>
+    </div>
+    <div>
+        <a routerLink="/"><img src="../../../assets/images/banner.png"></a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" >
+        <div fxLayout="column">
+            <div fxLayoutAlign="end" fxHide.xs >
+                <ul fxLayout  class="navigation-items">
+                    <li *ngIf="!isLogin"><a mat-button routerLink="/login"><mat-icon>manage_accounts</mat-icon></a></li>
+                    <li *ngIf="isLogin">
+                        <a mat-button >
+                            <mat-list-item [matMenuTriggerFor]="menu" >
+                                <mat-icon>manage_accounts</mat-icon>
+                            </mat-list-item>
+                        </a>
+                        <mat-menu #menu="matMenu">
+                            <a mat-menu-item routerLink="/admin/content/menu" *ngIf="isAdmin">Menu Management</a>
+                            <a mat-menu-item routerLink="/admin/content/assign" *ngIf="isAdmin">Content Management</a>
+                            <a mat-menu-item routerLink="/admin/storage" *ngIf="isAdmin">Public Storage</a>
+                            <a mat-menu-item routerLink="/admin/clientlist" *ngIf="isAdmin">User List</a>
+                            <a mat-menu-item routerLink="/account/documentlist" *ngIf="!isAdmin">Documents</a>
+                            <a mat-menu-item routerLink="/account/info">View profile</a>
+                            <a mat-menu-item routerLink="/account/changepassword">Change Password</a>
+                            <a mat-menu-item (click)="logout()" *ngIf="isLogin">Logout</a>
+                        </mat-menu>
+                    </li>
+                    <li><a mat-button routerLink="/aboutus"><mat-icon>groups</mat-icon></a></li>
+                    <!-- <li><a mat-flat-button routerLink="/services"><mat-icon>home_repair_service</mat-icon></a></li> -->
+                    <li><a mat-button routerLink="/contactus"><mat-icon>link</mat-icon></a></li>
+                    <li><a mat-button href="tel:+19055971740"><mat-icon>support_agenttel</mat-icon></a></li>                    
+                </ul>          
+            </div>
+            
+            <div fxHide.xs fxHide.sm>
+                <mat-divider></mat-divider>
+                <ul fxLayout fxLayoutGap="15px" class="navigation-items" fxLayoutAlign="end">
+                    
+                    <li *ngFor="let item of nav">
+                        <a mat-button *ngIf="item.subList==null || (item.subList!=null && item.subList.length==0)" routerLink="/{{item.primaryTitle}}" >{{item.primaryTitle}}</a>
+                        <a mat-button *ngIf="item.subList!=null && item.subList.length>0" [matMenuTriggerFor]="menu" (mouseover)="navItems(item._id)">{{item.primaryTitle}}</a>
+                    </li>
+                    
+                    <mat-menu #menu="matMenu">
+                        <div *ngFor="let subItem of sub">
+                            <a mat-menu-item *ngIf="subItem.subList==null || (subItem.subList!=null && subItem.subList.length==0)" routerLink="{{subItem.primaryTitle}}">{{subItem.primaryTitle}}</a>
+                            <a mat-menu-item *ngIf="subItem.subList!=null && subItem.subList.length>0" [matMenuTriggerFor]="subMenu" (mouseover)="navSubItems(subItem._id)">{{subItem.primaryTitle}}</a>
+                        </div>
+                    </mat-menu>
+                    
+                    
+                    <mat-menu #subMenu="matMenu">
+                        <div *ngFor="let element of secondSub">
+                            <a mat-menu-item routerLink="/{{element.primaryTitle}}">{{element.primaryTitle}}</a>
+                        </div>
+                    </mat-menu>
+                    
+                    
+                    <!-- <li>
+                        <a routerLink="/immigration">Immigration</a>
+                    </li>
+                    <li>
+                        <a routerLink="/Visa">Visa</a>
+                    </li>
+                    <li>
+                        <a routerLink="/toolsandresources">Tools & Resources</a>
+                    </li>
+                    <li>
+                        <a routerLink="/forms">Forms</a>
+                    </li>
+                    <li>
+                        <a routerLink="/faq">FAQ</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>        
+    </div>
+</mat-toolbar>

@@ -1,0 +1,79 @@
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Menu
+            </mat-panel-title>   
+            <mat-panel-description>
+                Selected Menu: {{lastSelectedTitle}}
+              </mat-panel-description>         
+        </mat-expansion-panel-header>
+        <mat-form-field appearance="fill">
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let item of list" [value]="item.primaryTitle" (click)="firstCheck(item.subList.length, item._id)">
+                    {{item.primaryTitle}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngIf="sub">
+            <mat-label>Select</mat-label>
+            <mat-select >
+                <mat-option *ngFor="let item of seclist" [value]="item.primaryTitle" (click)="secondCheck(item.subList.length, item._id)">
+                    {{item.primaryTitle}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill" *ngIf="secondSub">
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let item of thirdlist" [value]="item.primaryTitle" (click)="thirdCheck(item.subList.length, item._id)">
+                    {{item.primaryTitle}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-action-row>
+            <button mat-button (click)="nextStep()">Next</button>
+          </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle >
+        <div class="formContainer">
+            <form [formGroup]="pageForm" (ngSubmit)="onSubmit()" class="row g-3">
+                <div class="col-md-12">
+                    <label for="primaryTitle" class="form-label">Primary Title</label>
+                    <input type="text" class="form-control" formControlName="primaryTitle" />
+                </div>
+                <div class="col-md-12">
+                    <label for="description" class="form-label">Description</label>
+                    <!-- <input type="text" class="form-control" formControlName="description" /> -->
+                    <editor formControlName="description"
+                    apiKey="q8qrlam6a197mbo3gudyj1l5s4eu1085i79ipxyz3c18ogx4"
+                    [init]="{
+                        height:'600px',
+                        plugins:[
+                        'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons'
+                        ],
+                        image_dimensions: false,
+                        image_class_list: [
+                            {title: 'Responsive', value: 'img-responsive'}
+                        ],
+                        toolbar:['undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl']
+                        
+                    }"                    
+                    ></editor>
+                </div>
+          
+                <div class="col-12 action">
+                    <button type="submit" [disabled]="!pageForm.valid" class="btn btn-block btn-primary">Save</button>
+                    <button  class="btn btn-block btn-secondary delete" (click)="delete()">Remove</button> 
+                </div>
+            </form>
+          </div>
+          
+    </mat-expansion-panel>
+</mat-accordion>
+

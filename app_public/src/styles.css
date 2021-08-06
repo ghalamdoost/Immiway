@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; margin: 0;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #e7e9eb;}
+
+
+.main-container{
+    min-height: 20em;
+    width: 93%;
+    margin: 7em auto;
+    /* border: 1px solid black; */
+    background-color: #ffffff;
+    border-radius: 7px;
+}
+
+.mat-drawer-container{
+    background-color: #e7e9eb ;
+}
+
+
+.error-snackbar, .error-snackbar button{
+    color: #f44336;
+}
+.warning-snackbar, .warning-snackbar button {
+    color: #ff9800;
+}
+.info-snackbar, .info-snackbar button {
+    color: #2196f3;
+}
+.success-snackbar, .success-snackbar button {
+    color: #4caf50;
+}
+
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+

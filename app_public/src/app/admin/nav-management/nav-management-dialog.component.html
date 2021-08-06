@@ -1,0 +1,63 @@
+<!-- <div *ngIf="data.editMode">
+  <h1 mat-dialog-title>Edit Item</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Priority</mat-label>
+      <input matInput [(ngModel)]="data.data.priority">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="update()">Save</button>
+  </div>
+</div> -->
+
+<div >
+  <h1 mat-dialog-title>Add/Edit menu item</h1>
+  <div class="formContainer">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3">
+        <div class="col-md-6" *ngIf="!data.editMode">
+            <label for="primaryTitle" class="form-label">Title</label>
+            <input type="text" class="form-control" formControlName="primaryTitle" />
+        </div>
+        <div class="col-md-3" *ngIf="!data.editMode">
+            <label for="priority" class="form-label">Priority</label>
+            <input type="text" class="form-control" formControlName="priority" />
+        </div>
+        <div class="col-md-6" *ngIf="data.editMode">
+          <label for="priority" class="form-label">Priority</label>
+          <input type="text" class="form-control" formControlName="priority" />
+        </div>
+        <div class="col-md-3" *ngIf="!data.editMode">
+          <label for="showOnHomePage" class="form-label">Show on home page</label>
+          <div>
+            <mat-radio-group  formControlName="showOnHomePage">          
+              <mat-radio-button [value]="true">Yes</mat-radio-button>
+              <mat-radio-button [value]="false">No</mat-radio-button>
+            </mat-radio-group>
+          </div>          
+        </div>        
+        <div class="col-md-6" *ngIf="data.editMode">
+          <label for="showOnHomePage" class="form-label">Show on home page</label>
+          <div>
+            <mat-radio-group  formControlName="showOnHomePage">          
+              <mat-radio-button [value]="true">Yes</mat-radio-button>
+              <mat-radio-button [value]="false">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label for="imgURL" class="form-label">Image URL</label>
+          <input type="text" class="form-control" formControlName="imgURL" />
+        </div>
+        <div class="col-md-12">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" formControlName="description" ></textarea>
+        </div>
+  
+        <div class="col-12">
+            <button type="submit" [disabled]="!form.valid" class="btn btn-block btn-primary space" *ngIf="!data.editMode" mat-dialog-close>Add</button>
+            <button type="submit" [disabled]="!form.valid" class="btn btn-block btn-primary space" *ngIf="data.editMode" mat-dialog-close>Update</button>
+        </div>
+    </form>
+  </div>
+</div>

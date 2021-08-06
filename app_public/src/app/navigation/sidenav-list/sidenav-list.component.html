@@ -1,0 +1,90 @@
+<mat-nav-list>
+
+    <div *ngFor="let item of nav">
+        <a mat-list-item *ngIf="item.subList==null || (item.subList!=null && item.subList.length==0)" (click)="onSidenavClose()" routerLink="/{{item.primaryTitle}}">{{item.primaryTitle}}</a>
+        <a mat-list-item *ngIf="item.subList!=null && item.subList.length>0" [matMenuTriggerFor]="menu" (click)="navItems(item._id)">{{item.primaryTitle}}</a>
+    </div>
+
+    <mat-menu #menu="matMenu">
+        <div *ngFor="let subItem of sub">
+            <a mat-menu-item *ngIf="subItem.subList==null || (subItem.subList!=null && subItem.subList.length==0)" (click)="onSidenavClose()" routerLink="/{{subItem.primaryTitle}}">{{subItem.primaryTitle}}</a>
+            <a mat-menu-item *ngIf="subItem.subList!=null && subItem.subList.length>0" [matMenuTriggerFor]="subMenu" (mouseover)="navSubItems(subItem._id)">{{subItem.primaryTitle}}</a>
+        </div>
+    </mat-menu>
+
+    <mat-menu #subMenu="matMenu">
+        <div *ngFor="let element of secondSub">
+            <a mat-menu-item (click)="onSidenavClose()" routerLink="/{{element.primaryTitle}}">{{element.primaryTitle}}</a>
+        </div>
+    </mat-menu>
+
+
+
+    <!-- <a mat-list-item routerLink="/immigration" (click)="onSidenavClose()">
+        <mat-icon>cabin</mat-icon><span class="nav-caption">Immigration</span>
+    </a>
+    <a mat-list-item routerLink="/Visa" (click)="onSidenavClose()">
+        <mat-icon>access_time</mat-icon><span class="nav-caption">Visa</span>
+    </a>
+    <a mat-list-item routerLink="/toolsandresources" (click)="onSidenavClose()">
+        <mat-icon>handyman</mat-icon><span class="nav-caption">Tools & Resources</span>
+    </a>
+    <a mat-list-item routerLink="/forms" (click)="onSidenavClose()">
+        <mat-icon>dynamic_form</mat-icon><span class="nav-caption">Forms</span>
+    </a>
+    <a mat-list-item routerLink="/faq" (click)="onSidenavClose()">
+        <mat-icon>quiz</mat-icon><span class="nav-caption">FAQ</span>
+    </a> -->
+    
+    <mat-list-item>        
+    </mat-list-item>
+
+    <a mat-list-item routerLink="/login" *ngIf="!isLogin" (click)="onSidenavClose()">
+        <mat-icon>manage_accounts</mat-icon><span class="nav-caption">Login</span>
+    </a>
+    <mat-list-item [matMenuTriggerFor]="accountMenu" *ngIf="isLogin">
+        <mat-icon>manage_accounts</mat-icon>
+        <a matline>Account</a>
+    </mat-list-item>
+    <mat-menu #accountMenu="matMenu">
+        <a mat-menu-item (click)="goToMenuManagement()" *ngIf="isAdmin">Menu Management</a>
+        <a mat-menu-item (click)="goToContentManagement()" *ngIf="isAdmin">Content Management</a>
+        <a mat-menu-item (click)="goToPublicStorage()" *ngIf="isAdmin">Public Storage</a>
+        <a mat-menu-item (click)="goToClientlist()" *ngIf="isAdmin">User List</a>
+        <a mat-menu-item (click)="goToDocumentList()" *ngIf="isLogin && !isAdmin">Documents</a>
+        <a mat-menu-item (click)="goToInfo()" *ngIf="isLogin">View profile</a>
+        <a mat-menu-item (click)="goToChangepassword()" *ngIf="isLogin">Change Password</a>
+        <a mat-menu-item (click)="logout()" *ngIf="isLogin">Logout</a>
+    </mat-menu>
+    <div fxHide.sm>
+        <a mat-list-item routerLink="/aboutus" (click)="onSidenavClose()">
+            <mat-icon>description</mat-icon><span class="nav-caption">About Us</span>
+        </a>
+        <a mat-list-item routerLink="/services" (click)="onSidenavClose()">
+            <mat-icon>home_repair_service</mat-icon><span class="nav-caption">Services</span>
+        </a>
+        <a mat-list-item routerLink="/contactus" (click)="onSidenavClose()">
+            <mat-icon>link</mat-icon><span class="nav-caption">Contact Us</span>
+        </a>
+    </div>
+</mat-nav-list>
+
+
+
+<!-- 
+
+<li>
+    <a routerLink="/immigration">Immigration</a>
+</li>
+<li>
+    <a routerLink="/Visa">Visa</a>
+</li>
+<li>
+    <a routerLink="/toolsandresources">Tools & Resources</a>
+</li>
+<li>
+    <a routerLink="/forms">Forms</a>
+</li>
+<li>
+    <a routerLink="/faq">FAQ</a>
+</li> -->

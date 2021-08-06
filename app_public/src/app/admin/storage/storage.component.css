@@ -1,0 +1,27 @@
+.add{
+    background-color: #4caf50;
+    color: white;
+    margin: 0 0 1em 2em;
+}
+
+.download{
+    color: #2196f3;
+}
+.upload{
+    background-color: #2196f3;
+    color: white;
+    margin-left: 1em;
+}
+.delete{
+    color: #f44336;
+}
+
+.table-responsive{
+  width: 95%;
+  margin: auto;
+}
+ 
+
+.file-input {
+  display: none;
+}

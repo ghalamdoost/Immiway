@@ -1,0 +1,33 @@
+
+a:hover, a:active, .mat-menu-item:hover, .mat-flat-button:hover{
+    color: #0095da;
+}
+
+.mat-menu-item{
+    color: #2c2f91;
+}
+
+.navigation-items, .navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mat-flat-button{
+    background-color: white;
+    color: #2c2f91;
+}
+
+.nav-caption{
+    display: inline-block;
+    padding-left: 6px;
+}
+
+.mat-list-base .mat-list-item, button{
+    color: #2c2f91;
+}
+
+mat-icon{
+    vertical-align: middle;
+    color:#2c2f91;
+}

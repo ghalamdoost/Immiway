@@ -1,0 +1,31 @@
+
+.flex-container{
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around ;
+  /* align-items:center ; */
+  padding: 1em;
+}
+
+.row            { 
+  /* -webkit-flex-direction: row;  */
+  /* flex-direction: row; */
+  flex-wrap: row wrap;
+}
+
+.example-card {
+  max-width: 300px;    
+  margin: 2em 0;
+  text-align: justify;
+}
+  
+  
+h1,h2{
+  text-align:center;
+}
+
+h2{
+  padding-top: 2em;
+}

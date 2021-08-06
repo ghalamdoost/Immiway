@@ -1,0 +1,32 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+        <main class="main-container">
+            <app-breadcrumb></app-breadcrumb>
+            <router-outlet></router-outlet>
+            <button mat-fab [matMenuTriggerFor]="menu" #menuTrigger><mat-icon>call</mat-icon></button>
+            <mat-menu #menu="matMenu">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>Contact Us via WhatsApp</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="one-row">
+                            <mat-icon>support_agent</mat-icon>
+                            <a mat-menu-item href="https://web.whatsapp.com/send?phone=16477725712&text=Hello.%20I%20am%20Mirzaei%2C%20an%20immigration%20expert%2C%20and%20I%20am%20ready%20to%20answer%20your%20questions." target="_blank">Ms. Mirzaei</a>                        
+                        </div>                        
+                        <div class="one-row">
+                            <mat-icon>support_agent</mat-icon>
+                            <a mat-menu-item href="https://web.whatsapp.com/send?phone=989129736142&text=Hello.%20I%20am%20the%20creator%20of%20the%20immigration%20expert%20and%20ready%20to%20answer%20your%20questions." target="_blank">Ms. Khaleqi</a>                        
+                        </div>                        
+                    </mat-card-content>                    
+                </mat-card>                
+            </mat-menu>            
+        </main>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

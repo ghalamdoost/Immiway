@@ -1,0 +1,19 @@
+.mat-radio-group{
+    padding-top: 35px;
+}
+
+.mat-radio-button{
+    padding-right: 25px;
+}
+fieldset{
+    margin: 1em 0 2em 0;
+}
+
+.contain{
+    width: 95%;
+    margin: auto;
+}
+
+.action{
+    margin-top: 2em;
+}

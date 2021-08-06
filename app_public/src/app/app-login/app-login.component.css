@@ -1,0 +1,53 @@
+/* form{
+    padding: 50px;
+}
+.container form{    
+    border-radius: 35px;
+}
+
+.container form h1,label,small{
+    color: white;
+}
+.container{
+    width: 40%;
+    padding: 50px;
+    
+}
+.container-fluid{
+    height: 100%;
+    background-image: white;
+}
+h1{
+    text-align: center;
+}
+    
+.mat-form-field {
+    margin-right: 8px;
+  } */
+
+  .formContainer{
+    padding: 1.5rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+ }   
+
+.col-md-6{
+   padding-top: 5px;;
+} 
+.col-md-8{
+   padding-top: 5px;;
+} 
+
+.col-md-3{
+   padding-top: 5px;;
+} 
+.col-md-4{
+   padding-top: 5px;;
+} 
+
+.col-12{
+   padding-top: 5px;;
+} 

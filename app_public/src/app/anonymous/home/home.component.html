@@ -1,0 +1,64 @@
+<h1>Professional Immigration Service</h1>
+
+<mat-carousel
+timings="250ms ease-in"
+[autoplay]="true"
+interval="5000"
+color="black"
+maxWidth="auto"
+proportion="25"
+slides="5"
+[loop]="true"
+[hideArrows]="false"
+[hideIndicators]="true"
+[useKeyboard]="true"
+[useMouseWheel]="false"
+orientation="ltr"
+>
+    <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of slides; let i = index"
+    [image]="slide.image"
+    overlayColor="#00000040"
+    [hideOverlay]="false"
+    >
+        <!-- <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+            <h1>{{ i }}</h1>
+            <p>disabled: {{ matCarouselSlide.disabled }}</p>
+            <button mat-flat-button (click)="matCarouselSlide.disabled = !matCarouselSlide.disabled">
+                Click me!
+            </button>
+        </div> -->
+    </mat-carousel-slide>
+</mat-carousel>
+
+<h2 *ngIf="nav.length>0">OUR SERVICES</h2>
+<div class="flex-container row" >
+    <mat-card class="example-card" *ngFor="let card of nav;">
+        
+        <img mat-card-image src="{{card.imgURL}}" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>
+            {{card.description}}
+            </p>
+        </mat-card-content>    
+        <mat-card-actions>
+            <button mat-button *ngIf="card.subList==null || (card.subList!=null && card.subList.length==0)" routerLink="/{{card.primaryTitle}}" >{{card.primaryTitle}}<mat-icon>arrow_right_alt</mat-icon></button>
+            <button mat-button *ngIf="card.subList!=null && card.subList.length>0" [matMenuTriggerFor]="homeMenu" (click)="navItems(card._id)">{{card.primaryTitle}}<mat-icon>arrow_right_alt</mat-icon></button>
+
+            <mat-menu #homeMenu="matMenu">
+                <div *ngFor="let subItem of sub">
+                    <a mat-menu-item *ngIf="subItem.subList==null || (subItem.subList!=null && subItem.subList.length==0)" routerLink="{{subItem.primaryTitle}}">{{subItem.primaryTitle}}</a>
+                    <a mat-menu-item *ngIf="subItem.subList!=null && subItem.subList.length>0" [matMenuTriggerFor]="subMenu" (mouseover)="navSubItems(subItem._id)">{{subItem.primaryTitle}}</a>
+                </div>
+            </mat-menu>
+
+            <mat-menu #subMenu="matMenu">
+                <div *ngFor="let element of secondSub">
+                    <a mat-menu-item routerLink="/{{element.primaryTitle}}">{{element.primaryTitle}}</a>
+                </div>
+            </mat-menu>
+        </mat-card-actions>    
+    </mat-card>
+
+</div>

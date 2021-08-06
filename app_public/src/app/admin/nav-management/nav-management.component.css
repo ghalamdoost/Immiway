@@ -1,0 +1,28 @@
+.add{
+    background-color: #4caf50;
+    color: white;
+    margin: 0 0 1em 2em;
+}
+
+.subNav{
+    color: #2196f3;
+}
+.delete{
+    color: #f44336;
+}
+.edit{
+    color:#ff9800;
+}
+
+.space{
+    margin-top: 1em;
+}
+
+.table-responsive{
+    width: 95%;
+    margin: auto;
+}
+
+mat-radio-button{
+    padding-left: 1em;
+}

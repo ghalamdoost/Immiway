@@ -1,0 +1,42 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+
+mat-sidenav{
+    width: 250px;
+}
+
+main{
+    padding: 10px;
+}
+
+mat-sidenav-content{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+button.mat-focus-indicator.mat-menu-trigger.mat-fab.mat-button-base.mat-accent{
+    position: fixed;
+    bottom: 2em;
+    right: 2.5em; 
+    background-color:#4fce5d;
+    color: white;
+}
+
+mat-card-title{
+    color: #4fce5d ;
+}
+
+.mat-card-header .mat-card-title {
+    font-size: 15px;
+}
+
+.one-row{
+    display: flex;
+    align-items:center ;
+}
+
+.one-row mat-icon{
+    align-self: center;
+}
