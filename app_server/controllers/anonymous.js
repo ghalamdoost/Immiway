@@ -8,7 +8,7 @@ let aboutUs = (req, res)=>{
     res.status(200).json("aboutus Content")
 };
 
-let contactUs = (req, res)=>{
+let contactUs = (req, res)=>{ 
     res.status(200).json("contact Content")
 };
 
