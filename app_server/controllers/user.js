@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User= mongoose.model('User');
 const {Role}=require('../models/user');
-let bcrypt = require('bcrypt');
+let bcrypt = require('bcryptjs');
 const jwt=require('jsonwebtoken');
 
 
