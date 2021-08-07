@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  exp_url: "http://immiway.ghalamdoost.com:3000"
+  exp_url: "http://immiway.ghalamdoost.com"
 };
