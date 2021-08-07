@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@angular/cli": "^12.2.0",
     "aws-sdk": "^2.940.0",
     "bcrypt": "^5.0.1",
     "connect-multiparty": "^2.2.0",
