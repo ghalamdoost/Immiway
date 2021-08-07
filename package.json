@@ -8,7 +8,7 @@
   "dependencies": {
     "@angular/cli": "^12.2.0",
     "aws-sdk": "^2.963.0",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "connect-multiparty": "^2.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
