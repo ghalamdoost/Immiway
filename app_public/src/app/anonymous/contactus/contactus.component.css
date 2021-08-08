@@ -1,0 +1,58 @@
+h1{
+    text-align: center;
+}
+
+.grid{
+    display: grid;
+    grid-template-rows: auto auto 25em auto;
+}
+
+.column{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: auto; 
+    text-align: center;
+    place-content: space-around; 
+}
+
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+
+  .center{
+    place-content: center;
+    text-align: center;
+  }
+
+  mat-icon{
+      color: #2c2f91;
+  }
+
+  .width{
+      width: 70%;
+      margin: auto;
+      padding: 2em 0;
+  }
+
+  .whatsapp{
+    background-color:#4fce5d;
+    color: white;
+  }
+
+  @media only screen and (max-width: 666px) {
+    .column{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto); 
+    }
+  }
+
+  @media screen and (max-device-width: 666px) {
+    .column{
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto); 
+    }
+  }
