@@ -39,7 +39,6 @@ h2{
 
 mat-icon{
   color: #2c2f91;
-  font-size: xxx-large;
 }
 
 .column{
@@ -49,6 +48,9 @@ mat-icon{
   place-content: stretch; 
 }
 
+.bigger{
+  font-size: xxx-large;
+}
 
 .center{
   display: block;
