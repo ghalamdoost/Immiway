@@ -22,8 +22,8 @@
 }
 
 .card{
-  width: 280px;    
-  margin: 2em auto;
+  width: 100%;
+  /* margin: 2em auto; */
   text-align: center;
   background-color: #e7e9eb;
 }
@@ -44,16 +44,21 @@ mat-icon{
 
 .column{
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto; 
-  text-align: center;
-  place-content: space-around; 
+  place-content: stretch; 
+}
+
+
+.center{
+  display: block;
 }
 
 @media only screen and (max-width: 950px) {
   .column{
-      grid-template-columns: auto;
+      grid-template-columns: 1fr;
       grid-template-rows: repeat(3, auto); 
+      place-items: center;
   }
   .card{
     width: 80%;
@@ -62,8 +67,9 @@ mat-icon{
 
 @media screen and (max-device-width: 950px) {
   .column{
-      grid-template-columns: auto;
+      grid-template-columns: 1fr;
       grid-template-rows: repeat(3, auto); 
+      place-items: center;
   }
   .card{
     width: 80%;
