@@ -14,6 +14,8 @@ export class StorageComponent implements OnInit {
   selectedFile : File;
   documentList: Document[]=[];
   public userid: string;
+  theTitle:any;
+
   constructor(private authenticationService: AuthenticationService,private _spinner:NgxSpinnerService, private _route:Router, private _snackBar: MatSnackBar,private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -101,5 +103,15 @@ export class StorageComponent implements OnInit {
        }
        this._spinner.hide();
      })
+  }
+
+  Search(){
+    if(this.theTitle == ""){
+      this.ngOnInit();
+    }else{
+       this.theTitle = this.theTitle.filter(res =>{
+          return res.title.toLowerCase().match(this.theTitle.toLowerCase());        
+       })
+    }
   }
 }
