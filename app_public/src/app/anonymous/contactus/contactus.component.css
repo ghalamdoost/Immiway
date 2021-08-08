@@ -9,11 +9,21 @@ h1{
 
 .column{
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto; 
+    place-content: stretch; 
+  }
+
+  .card{
+    width: 100%;
+    /* margin: 2em auto; */
     text-align: center;
-    place-content: space-around; 
-}
+    background-color: #e7e9eb;
+  }
+
+  .center{
+    display: block;
+  }
 
 .example-card {
     max-width: 400px;    
