@@ -18,6 +18,7 @@ export class ClientDocumentsComponent implements OnInit {
   fileName='';
   uploadFormData = new FormData();
   public userid: string;
+  theTitle:any;
 
   constructor(private authenticationService: AuthenticationService,private _spinner:NgxSpinnerService, private _route:Router, private _snackBar: MatSnackBar,private activatedRoute: ActivatedRoute) { }
 
@@ -107,6 +108,19 @@ export class ClientDocumentsComponent implements OnInit {
       link.click();
       this._spinner.hide();
     })
+  }
+
+  Search(){
+    if(this.theTitle == ""){
+      this.ngOnInit();
+    }else{
+       this.documentList = this.documentList.filter(res =>{
+         debugger;
+        if(res.title.toLowerCase().match(this.theTitle.toLowerCase())!=null){
+          return res.title.toLowerCase().match(this.theTitle.toLowerCase());
+        }                  
+       })
+    }
   }
 
 }

@@ -109,8 +109,11 @@ export class StorageComponent implements OnInit {
     if(this.theTitle == ""){
       this.ngOnInit();
     }else{
-       this.theTitle = this.theTitle.filter(res =>{
-          return res.title.toLowerCase().match(this.theTitle.toLowerCase());        
+       this.documentList = this.documentList.filter(res =>{
+         debugger;
+        if(res.title.toLowerCase().match(this.theTitle.toLowerCase())!=null){
+          return res.title.toLowerCase().match(this.theTitle.toLowerCase());
+        }                  
        })
     }
   }

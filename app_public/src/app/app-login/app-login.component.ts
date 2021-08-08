@@ -23,7 +23,7 @@ export class AppLoginComponent implements OnInit {
     // redirect to account/admin if already logged in
     if (this.authenticationService.userValue) { 
       this.authenticationService.user.subscribe(x=>{
-        this._route.navigateByUrl('/account/info');
+        this._route.navigateByUrl('/');
       })      
     }
   }
@@ -55,7 +55,7 @@ export class AppLoginComponent implements OnInit {
       if(result.role==Role.Admin.valueOf){
         this._route.navigateByUrl('admin');
       }else{
-        this._route.navigateByUrl('account/info');      
+        this._route.navigateByUrl('/');      
       }      
     }, error => {
       this._snackBar.open(error.error, error.status, {

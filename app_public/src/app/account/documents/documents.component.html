@@ -10,6 +10,9 @@
 </div>
 
 <div class="table-responsive">
+  <nav class="navbar">
+    <input class="form-control" type="text" name="theTitle" [(ngModel)]="theTitle" (ngModelChange)="Search()" placeholder="Enter the title">
+  </nav>
 <table class="table table-striped">
   <thead>
   <tr>

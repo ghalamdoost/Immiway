@@ -20,6 +20,8 @@ export class DocumentsComponent implements OnInit {
   submitted = false;
   selectedFile : File = null;
   documentList: Document[]=[];
+  theTitle:any;
+
   constructor(private authenticationService: AuthenticationService,private _spinner:NgxSpinnerService,private sanitizer: DomSanitizer, private _route:Router, private _snackBar: MatSnackBar) { }
   ngOnInit(): void {
     this._spinner.show();
@@ -126,5 +128,18 @@ export class DocumentsComponent implements OnInit {
       link.click();
       this._spinner.hide();
     })
+  }
+
+  Search(){
+    if(this.theTitle == ""){
+      this.ngOnInit();
+    }else{
+       this.documentList = this.documentList.filter(res =>{
+         debugger;
+        if(res.title.toLowerCase().match(this.theTitle.toLowerCase())!=null){
+          return res.title.toLowerCase().match(this.theTitle.toLowerCase());
+        }                  
+       })
+    }
   }
 } 
