@@ -16,9 +16,15 @@
 }
 
 .example-card {
-  max-width: 300px;    
+  max-width: 100%;    
   margin: 2em 0;
   text-align: justify;
+}
+
+.card{
+  width: 280px;    
+  margin: 2em auto;
+  text-align: center;
 }
   
   
@@ -28,4 +34,37 @@ h1,h2{
 
 h2{
   padding-top: 2em;
+}
+
+mat-icon{
+  color: #2c2f91;
+  font-size: xxx-large;
+}
+
+.column{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: auto; 
+  text-align: center;
+  place-content: space-around; 
+}
+
+@media only screen and (max-width: 950px) {
+  .column{
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, auto); 
+  }
+  .card{
+    width: 80%;
+  }
+}
+
+@media screen and (max-device-width: 950px) {
+  .column{
+      grid-template-columns: auto;
+      grid-template-rows: repeat(3, auto); 
+  }
+  .card{
+    width: 80%;
+  }
 }
