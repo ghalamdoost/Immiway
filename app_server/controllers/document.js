@@ -13,6 +13,7 @@ let addNewUserDocument= async (req, res)=>{
                         'application/pdf',
                         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
                         'image/jpeg',
+                        'image/jpg',
                         'image/png',
                         'application/vnd.openxmlformats-officedocument.presentationml.presentation'];
         
