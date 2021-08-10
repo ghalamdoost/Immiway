@@ -6,7 +6,7 @@ timings="250ms ease-in"
 interval="5000"
 color="black"
 maxWidth="auto"
-proportion="25"
+proportion="40"
 slides="5"
 [loop]="true"
 [hideArrows]="false"
@@ -35,7 +35,9 @@ orientation="ltr"
 <h2 *ngIf="nav.length>0">OUR SERVICES</h2>
 <div class="flex-container row" >
     <mat-card class="example-card" *ngFor="let card of nav;">
-        
+        <mat-card-header>
+            <mat-card-title>{{card.primaryTitle}}</mat-card-title>
+          </mat-card-header>
         <img mat-card-image src="{{card.imgURL}}" alt="{{card.primaryTitle}}">
         <mat-card-content>
             <p>
@@ -43,8 +45,8 @@ orientation="ltr"
             </p>
         </mat-card-content>    
         <mat-card-actions>
-            <button mat-button *ngIf="card.subList==null || (card.subList!=null && card.subList.length==0)" routerLink="/{{card.primaryTitle}}" >{{card.primaryTitle}}<mat-icon>arrow_right_alt</mat-icon></button>
-            <button mat-button *ngIf="card.subList!=null && card.subList.length>0" [matMenuTriggerFor]="homeMenu" (click)="navItems(card._id)">{{card.primaryTitle}}<mat-icon>arrow_right_alt</mat-icon></button>
+            <button mat-button *ngIf="card.subList==null || (card.subList!=null && card.subList.length==0)" routerLink="/{{card.primaryTitle}}" >More<mat-icon>arrow_right_alt</mat-icon></button>
+            <button mat-button *ngIf="card.subList!=null && card.subList.length>0" [matMenuTriggerFor]="homeMenu" (click)="navItems(card._id)">More<mat-icon>arrow_right_alt</mat-icon></button>
 
             <mat-menu #homeMenu="matMenu">
                 <div *ngFor="let subItem of sub">
