@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const bodyParser = require('body-parser');
+
 require( './app_server/models/db');
 
 var anonymousRouter = require('./app_server/routes/anonymous');
@@ -48,9 +48,6 @@ app.get('*', function(req, res, next) {
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-app.use(bodyParser.json({limit: '10mb'}));
-app.use(bodyParser.urlencoded({limit: '10mb', extended: true}));
 
 
 // error handler
